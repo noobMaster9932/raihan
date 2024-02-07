@@ -17,6 +17,7 @@ app.use(express.json())
 app.use(compression())
 
 app.get('/user', masterUserRouter.getAlluser)
+app.get('/user/:username', masterUserRouter.getUserByUserName)
 
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`)
