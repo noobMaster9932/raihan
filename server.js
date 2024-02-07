@@ -1,23 +1,23 @@
 const express = require('express')
-const testFunction = require('./test')
-const app = express()
+
 const port = 8080
 
-app.get('/', (req, res) => {
-  res.send('Hello, World!')
-})
-app.get('/test', (req, res) => {
-  const result = testFunction()
+const helmet = require('helmet')
+const compression = require('compression')
+const logger = require('morgan')
+const cors = require('cors')
+const { masterUserRouter } = require('./router')
+// for logging router
+const app = express()
+app.use(helmet())
+app.use(cors())
+app.use(logger('dev'))
+app.use(express.urlencoded({ extended: false }))
+app.use(express.json())
+app.use(compression())
 
-  res.send('ini route test ' + result)
-})
-app.get('/test/:parameter/:parameter2', (req, res) => {
-  const p = req.params.parameter
-  const s = req.params.parameter2
-  const result = testFunction()
+app.get('/user', masterUserRouter.getAlluser)
 
-  res.send('ini route test ' + result + p +s)
-})
 app.listen(port, () => {
   console.log(`Server is listening at http://localhost:${port}`)
 })
