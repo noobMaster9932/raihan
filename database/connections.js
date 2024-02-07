@@ -15,8 +15,10 @@ const client = new Client(config)
 // Function to connect to the PostgreSQL server
 const connectToDatabase = async () => {
   try {
-    await client.connect()
-    console.log('Connected to PostgreSQL')
+    if (!client.connected) {
+      await client.connect()
+      console.log('Connected to PostgreSQL')
+    }
   } catch (error) {
     console.error('Error connecting to PostgreSQL:', error)
   }
