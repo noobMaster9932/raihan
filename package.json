@@ -1,0 +1,19 @@
+{
+  "name": "raihan",
+  "version": "1.0.0",
+  "description": "description",
+  "main": "index.js",
+  "scripts": {
+    "test": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/noobMaster9932/raihan.git"
+  },
+  "author": "Raihan, Randika",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/noobMaster9932/raihan/issues"
+  },
+  "homepage": "https://github.com/noobMaster9932/raihan#readme"
+}
